@@ -14,13 +14,22 @@
         </li>
     </ul>
 
+    <ul>
+        <li th:each="customer : ${customerList}">
+            <input type="radio" th:field="*{id}" th:value="${customer.id}"/>
+            <label th:for="${#ids.prev('id')}" th:text="${customer.id}">Wireframe</label>
+        </li>
+    </ul>
+
+    <select th:field="*{customerName}">
+        <option th:each="customer : ${customerList}"
+                th:value="${customer.name}"
+                th:text="${customer.name}">Wireframe
+        </option>
+    </select>
+
 </form>
 
-
-<!--    <div>-->
-<!--        <label th:for="${#ids.next('covered')}" th:text="#{seedstarter.covered}">Covered</label>-->
-<!--        <input type="checkbox" th:field="*{covered}"/>-->
-<!--    </div>-->
 
 
 
