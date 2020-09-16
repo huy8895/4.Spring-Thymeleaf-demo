@@ -61,4 +61,12 @@ public class CustomerController {
         model.addAttribute("customer", customerService.findById(id));
         return "/edit";
     }
+
+    @PostMapping("/customer/edit")
+    public String edit(Customer customer,RedirectAttributes redirectAttributes){
+        customerService.update(customer.getId(), customer);
+        redirectAttributes.addFlashAttribute("success", "Removed customer successfully!");
+        return "redirect:/";
+    }
+
 }
