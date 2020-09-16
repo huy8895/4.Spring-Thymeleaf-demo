@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>demo thymeleaf</title>
+</head>
+<body>
+<form th:object="${listDemo}">
+    <ul>
+        <li th:each="customer : ${customerList}">
+            <input type="checkbox" th:value="${customer.name}" th:field="*{customerName}"/>
+            <label th:for="${#ids.prev('customerName')}" th:text="${customer.name}"></label>
+        </li>
+    </ul>
+
+</form>
+
+
+<!--    <div>-->
+<!--        <label th:for="${#ids.next('covered')}" th:text="#{seedstarter.covered}">Covered</label>-->
+<!--        <input type="checkbox" th:field="*{covered}"/>-->
+<!--    </div>-->
+
+
+
+
+
+</body>
+</html>
